@@ -1,0 +1,18 @@
+<!--pages/todoInfo/index.wxml-->
+<view >
+  <view>
+    <text style='font-size:2rem;padding:20px;'>
+        {{task.title}}
+    </text>
+  </view>
+  <view>
+    <image src='{{task.image}}'></image>
+  </view>
+  <text wx:if='{{task.location}}'>位置：{{task.location.name}}</text>
+  <view>
+    完成进度：
+    <progress percent="{{percent}}" show-info />
+    <input placeholder='请输入' bindinput='setPercent'></input>
+    <button bindtap='submit' style='margin-top:40px'>提交</button>
+  </view>
+</view>

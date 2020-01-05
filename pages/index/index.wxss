@@ -1,0 +1,8 @@
+.title{
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  
+}
+.mark{
+  font-size:20px;
+}
