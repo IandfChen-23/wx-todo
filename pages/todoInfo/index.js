@@ -11,15 +11,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    task: {},
+    task: {
+      percent:null
+    },
     id: null,
-    percent:0,
   },
   setPercent:function(e){
      console.log(e)
-     let myPercent=e.detail.value
+    let myPercent =e.detail.value
+    let reg = new RegExp("^(\\d|[1-9]\\d|100)$");
+    if (!reg.test(myPercent)){
+       wx.showToast({
+         title: '请输入0-100的数字',
+         icon: 'none'
+       })
+       return
+     }
+     this.data.task.percent=myPercent
      this.setData({
-       percent:myPercent
+       'task.percent':myPercent
      })
   },
   /**
@@ -39,7 +49,7 @@ Page({
   submit:function(){
     db.collection('todos').doc(this.data.id).update({
       data:{
-        percent:this.data.percent
+        percent:this.data.task.percent
       }
     }).then(res => {
       console.log(res)

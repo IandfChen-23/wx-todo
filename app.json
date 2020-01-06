@@ -1,13 +1,34 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/addTodo/index",
-    "pages/todoInfo/index"
+    "pages/todoInfo/index",
+    "pages/done/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#A0A0A0",
+    "selectedColor": "blue",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/todo.png",
+        "selectedIconPath": "image/todo.png",
+        "text": "待办事项"
+      },
+      {
+        "pagePath": "pages/done/index",
+          "iconPath": "image/done.png",
+          "selectedIconPath": "image/done.png",
+        "text": "已完成"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -1,24 +1,22 @@
 <!--index.wxml-->
-<view class='constiner'>
-  <text class='mark'>
-    代办事项
-  </text>
+<view class='todoList'>
   <view wx:for='{{tasks}}' wx:key='item._id' class='title'>
-      <icon type='clear' style='float:right' catchtap='deleteItem'                        data-id='{{item._id}}' data-name='{{item.title}}'>
-      </icon>
+    <icon type='clear' style='float:right' catchtap='deleteItem' data-id='{{item._id}}' data-name='{{item.title}}'>
+    </icon>
 
-      <navigator url='../todoInfo/index?id={{item._id}}'>
-        <view>
+    <navigator url='../todoInfo/index?id={{item._id}}'>
+      <view>
 
-          {{item.title}}
-          <progress percent="{{item.percent}}" show-info />
+        {{item.title}}
+        <progress percent="{{item.percent}}" show-info />
 
-        </view>
-      </navigator>
-    </view>
-    <navigator url='../addTodo/index'>
-      <button style='position:fixed;bottom:20px;width:100%' type='primary'>
-        添加任务
-      </button>
+      </view>
     </navigator>
   </view>
+
+</view>
+<view style='display:flex;justify-content: center; '>
+<navigator url='../addTodo/index'>
+  <image src="../../image/add.png" style='width:60px;height:60px;'></image>
+</navigator>
+</view>

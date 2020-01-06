@@ -23,6 +23,12 @@ Page({
       this.getData();
     })
   },
+  toInfo:function(e){
+       console.log(e)
+       wx.redirectTo({
+         url: '../todoInfo/index',
+       })
+  },
   onLoad: function() {
     this.getData();
   },
