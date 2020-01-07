@@ -64,7 +64,7 @@ Page({
       wx.showToast({
         title: '添加成功',
       })
-      wx.navigateTo({
+      wx.switchTab({
         url: '../index/index',
       })
     })

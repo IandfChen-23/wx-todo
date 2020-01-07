@@ -4,7 +4,7 @@
     <icon type='clear' style='float:right' catchtap='deleteItem' data-id='{{item._id}}' data-name='{{item.title}}'>
     </icon>
 
-    <navigator url='../todoInfo/index?id={{item._id}}'>
+    <navigator url='../todoInfo/index?id={{item._id}}' hover-class='btn-hover'>
       <view>
 
         {{item.title}}
@@ -16,7 +16,7 @@
 
 </view>
 <view style='display:flex;justify-content: center; '>
-<navigator url='../addTodo/index'>
+<navigator url='../addTodo/index' hover-class='btn-hover'>
   <image src="../../image/add.png" style='width:60px;height:60px;'></image>
 </navigator>
 </view>

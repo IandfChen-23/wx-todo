@@ -1,11 +1,18 @@
-// pages/done/index.js
+//index.js
+//获取应用实例
+const app = getApp()
+wx.cloud.init({
+  env: 'wx-todo-e6867b',
+  traceUser: true,
+});
+const db = wx.cloud.database();
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-
+    tasks: []
   },
 
   /**
@@ -26,9 +33,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getData()
   },
-
+  getData: function () {
+    db.collection('todos').get().then(res => {
+      this.setData({
+        tasks: res.data.filter(item=>{
+          return item.percent==100
+        })
+      })
+    })
+  },
+  deleteItem: function (e) {
+    console.log(e)
+    let id = e.currentTarget.dataset.id
+    let title = e.currentTarget.dataset.name
+    db.collection('todos').doc(id).remove().then(res => {
+      console.log(res, title)
+      wx.showToast({
+        title: `${title}已删除`,
+      })
+      this.getData();
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

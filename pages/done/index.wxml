@@ -1,2 +1,13 @@
-<!--pages/done/index.wxml-->
-<text>pages/done/index.wxml</text>
+<view class='todoList'>
+  <view wx:for='{{tasks}}' wx:key='item._id' class='title'>
+    <icon type='clear' style='float:right' catchtap='deleteItem' data-id='{{item._id}}' data-name='{{item.title}}'>
+    </icon>
+      <view>
+
+        {{item.title}}
+        <progress percent="{{item.percent}}" show-info />
+
+      </view>
+  </view>
+
+</view>

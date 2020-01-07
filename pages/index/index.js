@@ -32,6 +32,9 @@ Page({
   onLoad: function() {
     this.getData();
   },
+  onShow:function(){
+    this.getData()
+  },
   onReachBottom: function() {
     this.getData();
   },
@@ -41,12 +44,15 @@ Page({
     })
     this.getData();
     wx.hideLoading()
+    wx.stopPullDownRefresh() // 结束下拉刷新的动作，恢复页面状态
   },
   
   getData: function() {
     db.collection('todos').get().then(res => {
       this.setData({
-        tasks: res.data
+        tasks: res.data.filter(item => {
+          return item.percent != 100
+        })
       })
     })
   }

@@ -1,1 +1,8 @@
-/* pages/done/index.wxss */
+.title{
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}
+.todoList{
+  height: 100vh;
+  overflow: auto;
+}

@@ -42,7 +42,7 @@ Page({
       console.log(res)
       this.setData({
         task: res.data,
-        id: id
+        id: id,
       })
     })
   },
@@ -52,8 +52,8 @@ Page({
         percent:this.data.task.percent
       }
     }).then(res => {
-      console.log(res)
-      wx.navigateTo({
+      console.log('res')
+      wx.switchTab({
         url: '../index/index',
       })
     })
