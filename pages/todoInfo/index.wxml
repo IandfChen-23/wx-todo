@@ -1,19 +1,22 @@
 <!--pages/todoInfo/index.wxml-->
-<view >
+<view>
   <view class="title">
-    <text >
+    <text>
         {{task.title}}
     </text>
   </view>
   <view>
+    完成进度：
+    <progress percent="{{task.percent}}" show-info />
+    <input placeholder='请输入0-100以内的数字' bindinput='setPercent'></input>
+  </view>
+  <view style="margin-top:20px;">
     <image src='{{task.image}}' mode='widthFix' style="width:100%;"></image>
   </view>
   <text wx:if='{{task.location}}'>位置：{{task.location.name}}</text>
-  <view>
-    完成进度：
-    <progress percent="{{task.percent}}" show-info />
 
-    <input placeholder='请输入0-100以内的数字' bindinput='setPercent'></input>
+  <view>
+
     <button bindtap='submit' style='margin-top:40px'>提交</button>
   </view>
 </view>

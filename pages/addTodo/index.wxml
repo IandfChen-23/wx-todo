@@ -1,8 +1,11 @@
 <!--index.wxml-->
   <form bindsubmit='onSubmit'>
    <textarea  name='title'  placeholder="请输入内容" style="height:3rem"/>
-   <image src='{{image}}' mode='widthFix' style="width:100%;"></image>
-   <text>{{location.name}}</text>
+   <image style="width: {{imagewidth}}px; height: {{imageheight}}px;"  src="{{image}}" bindload="imageLoad"></image>
+   <view>
+      <text>{{location.name}}</text>
+   </view>
+
    <view style='position:fixed;bottom:20px;width:100%'>
    <button bindtap='selectImg'>选择图片</button>
     <button bindtap='selectLocation'>选择位置</button>
