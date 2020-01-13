@@ -1,5 +1,5 @@
 {
   "usingComponents": {},
   "enablePullDownRefresh":true,
-  "navigationBarTitleText": "我的待办事项"
+  "navigationBarTitleText": "待办事项"
 }

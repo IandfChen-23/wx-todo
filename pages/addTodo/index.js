@@ -13,6 +13,16 @@ Page({
     location:null,
     imagewidth: 0, // 缩放后的宽
     imageheight: 0, // 缩放后的高
+    item:'hhhhh'
+  },
+  onSubscribe: function (e) {
+    wx.cloud.callFunction({
+      name:'database',
+
+      success:function(res){
+        console.log(res)
+      }
+    })
   },
   imageLoad: function (e) {
     var imageSize = this.imageUtil(e)

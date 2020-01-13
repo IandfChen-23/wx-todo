@@ -9,6 +9,7 @@
    <view style='position:fixed;bottom:20px;width:100%'>
    <button bindtap='selectImg'>选择图片</button>
     <button bindtap='selectLocation'>选择位置</button>
+    <button bindtap='onSubscribe' data-item="hhhhh">提醒</button>
    <button form-type='submit'>提交</button>
    </view>
    

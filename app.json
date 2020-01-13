@@ -27,6 +27,12 @@
           "iconPath": "image/done.png",
           "selectedIconPath": "image/done.png",
         "text": "已完成"
+      },
+      {
+        "pagePath": "pages/done/index",
+        "iconPath": "image/re.png",
+        "selectedIconPath": "image/re.png",
+        "text": "我的热点"
       }
     ]
   },
