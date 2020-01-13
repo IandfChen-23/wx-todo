@@ -55,6 +55,15 @@ Page({
     })
     return imageSize;
   },
+  notice:function(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['dKklVEVnM33J4CtRyKv0MDHlo7ZM_5EwFTDZxK_zgvI'],
+      success(res) {
+        console.log(res)
+       }
+    })
+  },
+  
   selectImg:function(){
     const that=this;
     wx.chooseImage({
