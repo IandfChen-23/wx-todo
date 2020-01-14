@@ -1,19 +1,21 @@
 <!--index.wxml-->
-  <form bindsubmit='onSubmit'>
-   <textarea  name='title'  placeholder="请输入内容" style="height:3rem"/>
-   <image style="width: {{imagewidth}}px; height: {{imageheight}}px;"  src="{{image}}" bindload="imageLoad"></image>
-   <view>
-      <text>{{location.name}}</text>
-   </view>
+<form bindsubmit='onSubmit'>
+	<van-cell-group>
+		<van-field name='title' type='textarea' value="{{ value }}" placeholder="请输入内容" border="{{ false }}" bind:change="onChange" focus='true' border clearable size='large' autosize style='font-size:30px;' />
+	</van-cell-group>
+	<!-- <textarea    placeholder="请输入内容" style="height:3rem"/> -->
+	<image style="width: {{imagewidth}}px; height: {{imageheight}}px;" src="{{image}}" bindload="imageLoad"></image>
+	<view>
+		<text>{{location.name}}</text>
+	</view>
 
-   <view style='position:fixed;bottom:20px;width:100%'>
-   <button bindtap='selectImg'>选择图片</button>
-    <button bindtap='selectLocation'>选择位置</button>
+	<view style='position:fixed;bottom:20px;width:100%'>
+		<button bindtap='selectImg'>选择图片</button>
+		<button bindtap='selectLocation'>选择位置</button>
 
-    <button bindtap='onSubscribe' data-item="hhhhh">提醒</button>
+		<!-- <button bindtap='onSubscribe' data-item="hhhhh">提醒</button> -->
 
-   <button form-type='submit'>提交</button>
-   </view>
-   
-  </form>
+		<button form-type='submit'>提交</button>
+	</view>
 
+</form>

@@ -7,11 +7,25 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
-		"minified": true,
+		"preloadBackgroundData": false,
+		"minified": false,
 		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
-		"nodeModules": true
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.0",

@@ -1,15 +1,13 @@
 <!--index.wxml-->
 <view class='todoList'>
   <view wx:for='{{tasks}}' wx:key='item._id' class='title' bindlongpress='setUrgent' data-id='{{item._id}}'>
-    <icon type='clear' style='float:right;' catchtap='deleteItem' data-id='{{item._id}}' data-name='{{item.title}}'>
-    </icon>
 
+<van-icon name="delete"  style='float:right;' catchtap='deleteItem' data-id='{{item._id}}' data-name='{{item.title}}'/>
     <navigator url='../todoInfo/index?id={{item._id}}' hover-class='btn-hover'>
       <view>
-<icon type='warn' wx:if='{{item.urgent}}'>
-    </icon>
+   <van-icon name="star" wx:if='{{item.urgent}}' color="#a27e7e" />
         {{item.title}}
-        <progress percent="{{item.percent}}" show-info />
+        <progress percent="{{item.percent}}" show-info activeColor='#939391'/>
 
       </view>
     </navigator>
@@ -18,6 +16,6 @@
 </view>
 <view style='display:flex;justify-content: center; '>
   <navigator url='../addTodo/index' hover-class='btn-hover'>
-    <image src="../../image/add.png" style='width:60px;height:60px;'></image>
+  <van-icon name="plus"  class="add" size="40px" />
   </navigator>
 </view>

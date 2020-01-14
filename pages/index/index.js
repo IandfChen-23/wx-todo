@@ -45,7 +45,7 @@ Page({
           }).then(res => {
             console.log(res)
             wx.showToast({
-              title: `已设置`,
+              title: `已取消`,
             })
             that.getData();
           })

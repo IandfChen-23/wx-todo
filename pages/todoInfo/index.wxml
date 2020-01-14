@@ -1,29 +1,36 @@
 <!--pages/todoInfo/index.wxml-->
 <view>
-  <view class="title">
-    <text>
-        {{task.title}}
-    </text>
-  </view>
-  <view>
-    完成进度：
-    <progress percent="{{task.percent}}" show-info />
-    <input placeholder='请输入0-100以内的数字' bindinput='setPercent'></input>
-    备注：{{task.remark}}
-  </view>
-  <view style="margin-top:20px;">
-    <image src='{{task.image}}' mode='widthFix' style="width:100%;"></image>
-  </view>
-  <text wx:if='{{task.location}}'>位置：{{task.location.name}}</text>
+	<view class="title">
+		<text>
+		{{task.title}}
+		</text>
+	</view>
+	<view style="height: 60vh;overflow: auto;">
+		<view>
+			<view style='display: flex;justify-content: center;padding:10px'>
+				<van-circle value="{{ task.percent }}" text="完成进度{{task.percent}}%" stroke-width="10" color='#939391' size='150' />
+			</view>
 
-  <view>
-<button bindtap='showRemark' style='margin-top:2px'>添加备注</button>
-    <button bindtap='submit' style='margin-top:10px'>提交</button>
-    <modal id="modal" hidden="{{hiddenmodalput}}" title="备注信息" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="addRemark">
- 
-  <input  placeholder="备注："style='height:40%' auto-focus  bindinput='setRemark'	/>
+			<!-- <progress percent="{{task.percent}}" show-info /> -->
+			<input placeholder='请输入0-100以内的数字' bindinput='setPercent'></input>
+			备注：{{task.remark}}
+		</view>
+		<view style="margin-top:20px;">
+			<image src='{{task.image}}' mode='widthFix' style="width:100%;"></image>
+		</view>
+		<text wx:if='{{task.location}}'>位置：{{task.location.name}}</text>
+	</view>
+	<view>
+
+		<view style="position:fixed;bottom:10px;width: 100%;">
+			<button bindtap='showRemark'>添加备注</button>
+			<button bindtap='submit' style='margin-top:10px'>提交</button>
+		</view>
+		<modal id="modal" hidden="{{hiddenmodalput}}" title="备注信息" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="addRemark">
+
+			<input placeholder="备注：" style='height:40%' auto-focus bindinput='setRemark' />
 
 
-</modal>
-  </view>
+		</modal>
+	</view>
 </view>

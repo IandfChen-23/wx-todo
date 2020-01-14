@@ -1,6 +1,5 @@
 {
   "usingComponents": {},
-  "enablePullDownRefresh":true,
 
   "navigationBarTitleText": "TO DO LIST"
 
