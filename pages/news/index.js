@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tasks: []
+    news: []
   },
 
   /**
@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -36,26 +36,25 @@ Page({
     this.getData()
   },
   getData: function () {
-    db.collection('todos').get().then(res => {
-      this.setData({
-        tasks: res.data.filter(item=>{
-          return item.percent==100
+    const that=this
+    wx.request({
+      url: `https://v.juhe.cn/toutiao/index?type=&key=063dda62198b71cfbbbe54b08c65c348`,
+      methods:'GET',
+      header: {
+        'content-type': 'json'
+      },
+      success: function(res){
+        console.log(res)
+        that.setData({
+          news: res.data.result.data
         })
-      })
+        console.log(that.data.news)
+      },
+      fail: function (res) {
+      },
     })
   },
-  deleteItem: function (e) {
-    console.log(e)
-    let id = e.currentTarget.dataset.id
-    let title = e.currentTarget.dataset.name
-    db.collection('todos').doc(id).remove().then(res => {
-      console.log(res, title)
-      wx.showToast({
-        title: `${title}已删除`,
-      })
-      this.getData();
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,0 +1,11 @@
+<view class='todoList'>
+<view  wx:for='{{news}}'>
+  <van-card
+  title="{{item.title}}"
+  thumb="{{item.thumbnail_pic_s}}"
+/>
+</view>
+
+
+
+</view>
