@@ -1,11 +1,12 @@
 <view class='todoList'>
-<view  wx:for='{{news}}'>
+<view  wx:for='{{news}}' class="news" bindtap="toDetail" data-url="{{item.url}}">
   <van-card
   title="{{item.title}}"
   thumb="{{item.thumbnail_pic_s}}"
 />
+<van-tag type="primary" class='tag'>{{item.author_name}}</van-tag>
+
 </view>
-
-
+<van-toast id="van-toast" />
 
 </view>

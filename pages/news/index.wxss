@@ -1,8 +1,9 @@
-.title{
-  padding: 10px;
-  border-bottom: 1px solid gray;
+.news{
+  position: relative;
 }
-.todoList{
-  height: 100vh;
-  overflow: auto;
+.tag{
+  position: absolute;
+left: 30%;
+top: 50%;
+
 }

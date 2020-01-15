@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/addTodo/index",
     "pages/todoInfo/index",
-    "pages/done/index"
+    "pages/news/index",
+    "pages/my/index",
+    "pages/out/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,16 +25,16 @@
         "text": "待办事项"
       },
       {
-        "pagePath": "pages/done/index",
-          "iconPath": "image/done.png",
-          "selectedIconPath": "image/done.png",
-        "text": "已完成"
+        "pagePath": "pages/news/index",
+          "iconPath": "image/re.png",
+          "selectedIconPath": "image/re.png",
+        "text": "热点新闻"
       },
       {
-        "pagePath": "pages/done/index",
-        "iconPath": "image/re.png",
-        "selectedIconPath": "image/re.png",
-        "text": "我的热点"
+        "pagePath": "pages/my/index",
+        "iconPath": "image/xin.png",
+        "selectedIconPath": "image/xin.png",
+        "text": "磊和姣"
       }
     ]
   },
@@ -43,6 +45,12 @@
     "van-stepper": "@vant/weapp/stepper/index",
     "van-progress": "@vant/weapp/progress/index",
     "van-field": "@vant/weapp/field/index",
-    "van-circle": "@vant/weapp/circle/index"
+    "van-circle": "@vant/weapp/circle/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+  "van-collapse-item": "@vant/weapp/collapse-item/index",
+  "van-notice-bar": "@vant/weapp/notice-bar/index",
+  "van-toast": "@vant/weapp/toast/index"
   }
 }

@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+import Toast from '@vant/weapp/toast/toast';
 const app = getApp()
 wx.cloud.init({
   env: 'wx-todo-e6867b',
@@ -45,16 +46,37 @@ Page({
       },
       success: function(res){
         console.log(res)
-        that.setData({
-          news: res.data.result.data
-        })
-        console.log(that.data.news)
+        if(res.data.result){
+          wx.setStorage({
+            key: 'news',
+            data: res.data.result.data,
+            success: function(res){
+              console.log('异步保存成功')
+            }
+          })
+        }else{
+          Toast.fail('数据加载失败');
+        }
+        
+        // that.setData({
+        //   news: res.data.result.data
+        // })
+        console.log('news'+that.data.news)
       },
       fail: function (res) {
+        Toast.fail('数据加载失败');
       },
     })
   },
+  toDetail:function(e){
+console.log(e);
+const url=e.currentTarget.dataset.url;
+console.log(url);
 
+wx.navigateTo({
+  url: '../out/index?url='+url,
+})
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
