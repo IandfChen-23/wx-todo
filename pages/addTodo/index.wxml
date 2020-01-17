@@ -10,8 +10,11 @@
 	</view>
 
 	<view style='position:fixed;bottom:20px;width:100%'>
-		<button bindtap='selectImg'>选择图片</button>
-		<button bindtap='selectLocation'>选择位置</button>
+	<view style="display:flex;justify-content:space-around;bottom:20px;">
+		<button bindtap='selectImg' style="width:50%">选择图片</button>
+		<button bindtap='selectLocation' style="width:50%">选择位置</button>
+	</view>
+	
 
 		<!-- <button bindtap='onSubscribe' data-item="hhhhh">提醒</button> -->
 

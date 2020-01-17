@@ -17,10 +17,11 @@ Page({
     },
     hiddenmodalput: true,
     id: null,
+    goal:null
   },
   setPercent: function (e) {
     console.log(e)
-    let myPercent = e.detail.value
+    let myPercent = e.detail
     let reg = new RegExp("^(\\d|[1-9]\\d|100)$");
     if (!reg.test(myPercent)) {
       wx.showToast({
@@ -41,7 +42,7 @@ Page({
   },
   setRemark: function (e) {
     console.log(e)
-    let myRemark = e.detail.value
+    let myRemark = e.detail
     this.data.task.remark = myRemark
   },
   /**
@@ -49,14 +50,28 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    let id = options.id
-    db.collection('todos').doc(id).get().then(res => {
-      console.log(res)
-      this.setData({
-        task: res.data,
-        id: id,
-      })
+    let id = options.id;
+    this.setData({
+      goal:options.goal
     })
+    if(options.goal){
+      db.collection('goal').doc(id).get().then(res => {
+        console.log(res)
+        this.setData({
+          task: res.data,
+          id: id,
+        })
+      })
+    }else{
+      db.collection('todos').doc(id).get().then(res => {
+        console.log(res)
+        this.setData({
+          task: res.data,
+          id: id,
+        })
+      })
+    }
+    
   },
   addRemark: function () {
     db.collection('todos').doc(this.data.id).update({
@@ -82,17 +97,33 @@ Page({
     })
   },
   submit: function () {
-    db.collection('todos').doc(this.data.id).update({
-      data: {
-        percent: this.data.task.percent,
-        remark: this.data.task.remark
-      }
-    }).then(res => {
-      console.log('res')
-      wx.switchTab({
-        url: '../index/index',
+    console.log(this.data.task.remark)
+    if(this.data.goal){
+      db.collection('goal').doc(this.data.id).update({
+        data: {
+          percent: this.data.task.percent,
+          remark: this.data.task.remark
+        }
+      }).then(res => {
+        console.log('res')
+        wx.switchTab({
+          url: '../goal/index',
+        })
       })
-    })
+    }else{
+      db.collection('todos').doc(this.data.id).update({
+        data: {
+          percent: this.data.task.percent,
+          remark: this.data.task.remark
+        }
+      }).then(res => {
+        console.log('res')
+        wx.switchTab({
+          url: '../index/index',
+        })
+      })
+    }
+    
   },
 
   /**

@@ -1,8 +1,9 @@
 swiper {
   padding-top: 30px;
+  height: 100%;
  }
  .le-img {
-  width: 100%;
+
   display: block;
   transform: scale(0.8);
   transition: all 0.3s ease;
@@ -16,4 +17,13 @@ swiper {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+.item {
+  display:inline-block;
+  justify-content: center;
+  width: 50%;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  background-color: #a29988;
 }

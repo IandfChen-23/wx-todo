@@ -13,7 +13,8 @@ Page({
     location:null,
     imagewidth: 0, // 缩放后的宽
     imageheight: 0, // 缩放后的高
-    item:'hhhhh'
+    item:'hhhhh',
+    goal:null
   },
   onSubscribe: function (e) {
     wx.cloud.callFunction({
@@ -101,24 +102,53 @@ Page({
        },
      })
   },
+  onLoad:function(options){
+    console.log(options.goal)
+    const goal=options.goal;
+    this.setData({
+      goal:goal
+    })
+
+  },
   onSubmit:function(e){
     console.log(e.detail.value.title);
     let myTile = e.detail.value.title;
-    db.collection('todos').add({
-      data:{
-        title:myTile,
-        image:this.data.image,
-        location:this.data.location,
-        percent:0
-      }
-    }).then(res=>{
-      console.log(res)
-      wx.showToast({
-        title: '添加成功',
+    const goal=this.data.goal;
+    if(!goal){
+      db.collection('todos').add({
+        data:{
+          title:myTile,
+          image:this.data.image,
+          location:this.data.location,
+          percent:0
+        }
+      }).then(res=>{
+        console.log(res)
+        wx.showToast({
+          title: '添加成功',
+        })
+        wx.switchTab({
+          url: '../index/index',
+        })
       })
-      wx.switchTab({
-        url: '../index/index',
+    }else{
+      db.collection('goal').add({
+        data:{
+          title:myTile,
+          image:this.data.image,
+          location:this.data.location,
+          percent:0
+        }
+      }).then(res=>{
+        console.log(res)
+        wx.showToast({
+          title: '添加成功',
+        })
+        wx.switchTab({
+          url: '../goal/index',
+        })
       })
-    })
+    }
+    
   }
 })

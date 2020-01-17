@@ -13,13 +13,23 @@ url:null
    */
   onLoad: function (options) {
     let data = options.url;
-    data='https://'+data.substring(7)
-    console.log(data);
     
     this.setData({
       url:data
     })
-
+    // wx.cloud.callFunction({
+    //   name:'getNewsDetail',
+    //   data:{
+    //     url:data
+    //   }
+    // }).then(res=>{
+    //   console.log(JSON.parse(res.result) )
+    //   res=JSON.parse(res.result)
+    //   let news=res.result.data
+    //   this.setData({
+    //     news: news
+    //   })
+    // })
   },
 
   /**

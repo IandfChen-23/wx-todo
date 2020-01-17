@@ -1,0 +1,21 @@
+.title{
+  padding: 10px;
+border: 1px solid #ececea;
+border-radius: 10px;
+background-color: #fdf9ee;
+}
+.todoList{
+  height: 100vh;
+  overflow: auto;
+}
+.add{
+   height: 60px;
+   width: 60px;
+   position: fixed;
+   border-radius: 50%;
+   border: 1px solid white;
+   color: white;
+   right: 40px;
+   bottom:10px;
+   background-color:#96a48b;
+}
